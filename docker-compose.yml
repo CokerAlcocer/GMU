@@ -18,9 +18,11 @@ services:
     build:
       context: ./gmu-front
     ports:
-      - "80:80"
+      - "80:443"
     networks:
       - gmu-net
+    volumes:
+      - certbot-certs:/etc/letsencrypt:ro
 
   backend:
     image: services:gmu-v1
